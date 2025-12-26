@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(#3b3b3b, #0f0f0f);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+/* PLAYER BODY */
+.player {
+  width: 92vw;
+  max-width: 460px;
+  background: linear-gradient(#e1e1e1, #bcbcbc);
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: inset 0 0 20px #0006, 0 12px 40px #000a;
+  animation: wobble 0.25s infinite;
+  position: relative;
+}
+
+/* CASSETTE SLOT */
+.cassette-slot {
+  background: #0d0d0d;
+  height: 160px;
+  border-radius: 10px;
+  padding: 12px;
+  overflow: hidden;
+}
+
+/* CASSETTE */
+.cassette {
+  height: 100%;
+  background: linear-gradient(#222, #111);
+  border-radius: 8px;
+  transform: translateY(-180%);
+  transition: transform 0.7s cubic-bezier(.2,.8,.2,1);
+  position: relative;
+}
+
+.cassette.inserted {
+  transform: translateY(0);
+}
+
+.label {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  color: #eee;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* REELS */
+.reels {
+  display: flex;
+  justify-content: space-between;
+  padding: 64px 54px 0;
+}
+
+.reel {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(#666 10%, #333 60%);
+  display: grid;
+  place-items: center;
+}
+
+.hub {
+  width: 14px;
+  height: 14px;
+  background: #111;
+  border-radius: 50%;
+}
+
+/* TAPE */
+.tape {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  width: 100%;
+}
+
+/* CONTROLS */
+.controls {
+  display: flex;
+  margin-top: 18px;
+}
+
+button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 14px;
+  background: #2b2b2b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: inset 0 -3px 0 #000;
+  font-size: 14px;
+}
+
+button.locked {
+  background: #111;
+  box-shadow: inset 0 3px 0 #000;
+}
+
+/* VHS EFFECTS */
+.vhs-overlay {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,.06),
+    rgba(0,0,0,.06) 1px,
+    transparent 2px
+  );
+  opacity: .25;
+  pointer-events: none;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: .15;
+  mix-blend-mode: overlay;
+  animation: grainMove .6s steps(2) infinite;
+  pointer-events: none;
+}
+
+@keyframes grainMove {
+  from { transform: translate(0,0); }
+  to { transform: translate(-5%, -5%); }
+}
+
+@keyframes wobble {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(.3px); }
+  100% { transform: translateX(-.3px); }
+}

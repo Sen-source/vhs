@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Cassette Player</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="player">
+
+  <div class="cassette-slot">
+    <div class="cassette" id="cassette">
+
+      <div class="label">For Bea</div>
+
+      <svg class="tape" viewBox="0 0 300 60">
+        <path id="tapePath"
+          d="M30 30 C90 30, 210 30, 270 30"
+          stroke="#2b2b2b"
+          stroke-width="6"
+          fill="none"
+          stroke-linecap="round" />
+      </svg>
+
+      <div class="reels">
+        <div class="reel left"><div class="hub"></div></div>
+        <div class="reel right"><div class="hub"></div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="play">PLAY</button>
+    <button id="stop">STOP</button>
+    <button id="rewind">REW</button>
+    <button id="load">LOAD</button>
+  </div>
+
+</div>
+
+<div class="vhs-overlay"></div>
+<div class="grain"></div>
+
+<audio id="audio" preload="auto" src="Letter.MP3"></audio>
+<audio id="insertSound" preload="auto" src="vhs.mp3"></audio>
+
+
+<script src="script.js"></script>
+</body>
+</html>
